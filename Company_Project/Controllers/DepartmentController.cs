@@ -2,6 +2,7 @@
 using Company_Project.DTO;
 using Company_Project.DTO.ReceversDTOs;
 using Company_Project.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ namespace Company_Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="Admin")]
     public class DepartmentController : ControllerBase
     {
         private readonly AppDbContext context;

@@ -3,15 +3,18 @@ using Company_Project.ActionFilters;
 using Company_Project.DTO;
 using Company_Project.DTO.ReceversDTOs;
 using Company_Project.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using XAct.Messages;
+using XAct.Security;
 
 namespace Company_Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="Admin")]
     public class CompanyController : ControllerBase
     {
         private readonly AppDbContext context;
